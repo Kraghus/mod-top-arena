@@ -247,7 +247,9 @@ class TopArenaNPC : public CreatureScript
                         // no team found
                         if(!result)
                         {
-                            player->GetSession()->SendNotification("Arena team not found...");
+                            // trying a different way to handle chat...
+                            ChatHandler(player->GetSession()).SendNotification("Arena team not found...");
+                            // player->GetSession()->SendNotification("Arena team not found...");
                             player->PlayerTalkClass->SendCloseGossip();
                             return true;
                         }
